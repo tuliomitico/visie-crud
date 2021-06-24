@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<p>Você enviou esses dados:</p>
+<table>
+<tr><td>Nome:</td><td>{{ the_nome }}</td></tr>
+<tr><td>RG:</td><td>{{ the_rg }}</td></tr>
+<tr><td>CPF:</td><td>{{ the_cpf }}</td></tr>
+<tr><td>Data de nascimento:</td><td>{{ the_data_nasc }}</td></tr>
+</table>
+
+<h3>Dados inseridos com sucesso!</h3>
+
+{% endblock %}

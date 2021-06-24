@@ -1,15 +1,47 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2>{{the_title}}</h2>
+<h2 align = "center">{{the_title}}</h2>
 
-<form action="/search4" method="post">
+<table align = "center">
+    <tr>
+        {% for row_title in the_row_titles %}
+        <th>{{row_title}}</th>
+        {% endfor %}
+    </tr>
+    {% for log_row in the_data %}
+    <tr>
+        <td>{{log_row.id_pessoa}}</td>
+        <td>{{log_row.nome}}</td>
+        <td>{{log_row.rg}}</td>
+        <td>{{log_row.cpf}}</td>
+        <td>{{log_row.niceDate}}</td>
+        <td>{{log_row.otherDate}}</td>
+        <td>{{log_row.funcao}}</td>
+        <td><a href="/excluir/{{log_row.id_pessoa}}"><button>Excluir</button></a></td>
+        {% endfor %}
+    </tr>
+</table>
+
+
+<form action="/send" method="post">
     <table>
-        <p>Formulário de admissão</p>
+        <p align='center'>Formulário de admissão</p>
         <tr>
-            <td></td>
+            <td>Nome:</td><td><input name="nome" type="TEXT" width=60 /></td>
+        </tr>
+        <tr>
+            <td>RG:</td><td><input type="text" name="rg" value=""></td>
+        </tr>
+        <tr>
+            <td>CPF:</td><td><input type="text" name="cpf" value=""></td>
+        </tr>
+        <tr>
+            <td>Data de nascimento:</td><td><input type="text" name="data_nasc"></td>
         </tr>
     </table>
+    <p>Clique aqui para inserir</p>
+    <p><input value='Enviar' type='SUBMIT'></p>
 </form>
 
 

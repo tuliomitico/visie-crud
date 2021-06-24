@@ -17,7 +17,7 @@ class UseDatabase(object):
     def __enter__(self) -> "cursor":
         try:
             self.conn = mysql.connector.connect(**self.configuration)
-            self.cursor = self.conn.cursor()
+            self.cursor = self.conn.cursor(dictionary=True)
             return self.cursor
         except mysql.connector.InterfaceError as err:
             raise ConnectionError(err)
